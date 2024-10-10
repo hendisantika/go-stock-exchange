@@ -25,3 +25,13 @@ func (i *Investor) UpdateAssetPosition(assetID string, qtdShares int) {
 		i.AssetPosition = append(i.AssetPosition)
 	}
 }
+
+func (i *Investor) GetAssetPosition(assetID string) *InvestorAssetPosition {
+	for _, assetPosition := range i.AssetPosition {
+		if assetPosition.AssetID == assetID {
+			return assetPosition
+		}
+	}
+
+	return nil //nil é null em go.
+}
