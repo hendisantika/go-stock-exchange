@@ -6,3 +6,10 @@ type Consumer struct {
 	ConfigMap *ckafka.ConfigMap
 	Topics    []string
 }
+
+func NewConsumer(configMap *ckafka.ConfigMap, topics []string) *Consumer {
+	return &Consumer{
+		ConfigMap: configMap,
+		Topics:    topics,
+	}
+}
