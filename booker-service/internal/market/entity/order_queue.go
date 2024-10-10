@@ -19,3 +19,11 @@ func (oq *OrderQueue) Len() int {
 func (oq *OrderQueue) Push(x any) {
 	oq.Orders = append(oq.Orders, x.(*Order))
 }
+
+func (oq *OrderQueue) Pop() any {
+	old := oq.Orders
+	n := len(old)
+	item := old[n-1]
+	oq.Orders = old[0 : n-1]
+	return item
+}
