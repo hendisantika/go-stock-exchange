@@ -27,3 +27,7 @@ func (oq *OrderQueue) Pop() any {
 	oq.Orders = old[0 : n-1]
 	return item
 }
+
+func NewOrderQueue() *OrderQueue {
+	return &OrderQueue{}
+}
