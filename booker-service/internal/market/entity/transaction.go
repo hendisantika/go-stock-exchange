@@ -1,6 +1,9 @@
 package entity
 
-import "time"
+import (
+	"github.com/google/uuid"
+	"time"
+)
 
 type Transaction struct {
 	ID           string
@@ -10,4 +13,17 @@ type Transaction struct {
 	Total        float64
 	DateTime     time.Time
 	Shares       int
+}
+
+func NewTransaction(sellingOrder *Order, buyingOrder *Order, shares int, price float64) *Transaction {
+	total := float64(shares) * price
+
+	return &Transaction{
+		ID:           uuid.New().String(),
+		SellingOrder: sellingOrder,
+		BuyingOrder:  buyingOrder,
+		Total:        total,
+		Price:        price,
+		Shares:       shares,
+	}
 }
