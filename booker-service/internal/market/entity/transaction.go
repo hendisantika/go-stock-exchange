@@ -43,3 +43,7 @@ func (t *Transaction) CloseSellOrderTransaction() {
 		t.BuyingOrder.Status = "CLOSED"
 	}
 }
+
+func (t *Transaction) AddBuyOrderPendingShares(shares int) {
+	t.BuyingOrder.PendingShares += shares
+}
