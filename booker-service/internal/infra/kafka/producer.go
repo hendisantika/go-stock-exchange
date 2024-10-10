@@ -9,3 +9,24 @@ func NewKafkaProducer(configMap *ckafka.ConfigMap) *Producer {
 		ConfigMap: configMap,
 	}
 }
+
+func (p *Producer) Publish(msg any, key []byte, topic string) error {
+	producer, err := ckafka.NewProducer(p.ConfigMap)
+	if err != nil {
+		return err
+	}
+
+	message := &ckafka.Message{
+		TopicPartition: ckafka.TopicPartition{Topic: &topic, Partition: ckafka.PartitionAny},
+		Key:            key,
+		Value:          msg.([]byte),
+	}
+
+	err = producer.Produce(message, nil)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
