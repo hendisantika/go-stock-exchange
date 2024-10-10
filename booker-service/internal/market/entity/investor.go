@@ -35,3 +35,8 @@ func (i *Investor) GetAssetPosition(assetID string) *InvestorAssetPosition {
 
 	return nil //nil é null em go.
 }
+
+type InvestorAssetPosition struct {
+	AssetID string
+	Shares  int
+}
