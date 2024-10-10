@@ -16,3 +16,12 @@ func NewInvestor(id string) *Investor {
 func (i *Investor) AddAssetPosition(assetPosition *InvestorAssetPosition) {
 	i.AssetPosition = append(i.AssetPosition, assetPosition)
 }
+
+func (i *Investor) UpdateAssetPosition(assetID string, qtdShares int) {
+	assetPosition := i.GetAssetPosition(assetID)
+
+	if assetPosition == nil {
+
+		i.AssetPosition = append(i.AssetPosition)
+	}
+}
