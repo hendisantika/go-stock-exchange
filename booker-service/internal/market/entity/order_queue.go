@@ -15,3 +15,7 @@ func (oq *OrderQueue) Swap(i, j int) {
 func (oq *OrderQueue) Len() int {
 	return len(oq.Orders)
 }
+
+func (oq *OrderQueue) Push(x any) {
+	oq.Orders = append(oq.Orders, x.(*Order))
+}
