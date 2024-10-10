@@ -47,3 +47,7 @@ func (t *Transaction) CloseSellOrderTransaction() {
 func (t *Transaction) AddBuyOrderPendingShares(shares int) {
 	t.BuyingOrder.PendingShares += shares
 }
+
+func (t *Transaction) AddSellOrderPendingShares(shares int) {
+	t.SellingOrder.PendingShares += shares
+}
