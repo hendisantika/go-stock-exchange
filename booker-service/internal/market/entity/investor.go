@@ -12,3 +12,7 @@ func NewInvestor(id string) *Investor {
 		AssetPosition: []*InvestorAssetPosition{},
 	}
 }
+
+func (i *Investor) AddAssetPosition(assetPosition *InvestorAssetPosition) {
+	i.AssetPosition = append(i.AssetPosition, assetPosition)
+}
